@@ -1,0 +1,21 @@
+CREATE OR ALTER     VIEW vXLS_OINV
+AS
+SELECT 
+INV1.DocEntry,
+INV1.LineNum,
+INV1.Dscription,
+INV1.Quantity,
+INV1.OpenQty,
+INV1.Price,
+INV1.LineTotal,
+OINV.SlpCode,
+OINV.DocNum,
+OINV.CardName,
+INV1.LineStatus,
+OINV.CreateDate,
+OINV.UpdateDate,
+OINV.CANCELED
+FROM SBO_NMU_PROD.CLEAN_INV1 INV1
+LEFT JOIN SBO_NMU_PROD.CLEAN_OINV OINV ON INV1.DocEntry = OINV.DocEntry
+
+
